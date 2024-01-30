@@ -106,7 +106,11 @@ bool LinkedList::contains(int item) {
 }
 
 LinkedList::Node* LinkedList::getPreviousNode(LinkedList::Node *node) {
+
     Node* current = head;
+
+    if(current == nullptr || current == node)
+        return nullptr;
     while(current->next != nullptr){
         if(current->next ==  node) return current;
         current = current->next;
@@ -127,3 +131,18 @@ void LinkedList::printElements() {
         cout << "The linked list is empty";
 }
 
+void LinkedList::reverse(){
+    Node* prev = nullptr;
+    Node* curr = head;
+    Node* forward = nullptr;
+
+    while(curr != nullptr){
+        forward = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = forward;
+
+    }
+
+    head = prev;
+}

@@ -29,6 +29,7 @@ public:
     void deleteLast();
     bool contains(int item);
     Node* getPreviousNode(Node* node);
+    void reverse();
     void printElements();
 };
 
